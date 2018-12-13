@@ -1,0 +1,115 @@
+
+{% extends "layout.html" %}
+
+{% block main %}
+<!-- Page to review a club -->
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Club Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="{{review_link}}" method="post" name="myForm" onsubmit="return validateForm()">
+
+
+    <p>
+        Key:<br>
+        1: Unsatisfactory;
+        2: Fair;
+        3: Good;
+        4: Very Good;
+        5: Excellent;
+    </p>
+    <div>
+        Overall Experience<br>
+    </div>
+    <label class="radio-inline">
+        <input type="radio" value="1" name="Experience">1
+        <input type="radio" value="2" name="Experience">2
+        <input type="radio" value="3" name="Experience">3
+        <input type="radio" value="4" name="Experience">4
+        <input type="radio" value="5" name="Experience">5
+    </label>
+    <div>
+        Organizational Leadership<br>
+    </div>
+    <label class="radio-inline">
+        <input type="radio" value="1" name="Leadership">1
+        <input type="radio" value="2" name="Leadership">2
+        <input type="radio" value="3" name="Leadership">3
+        <input type="radio" value="4" name="Leadership">4
+        <input type="radio" value="5" name="Leadership">5
+    </label>
+    <div>
+        Club Culture<br>
+    </div>
+    <label class="radio-inline">
+        <input type="radio" value="1" name="Culture">1
+        <input type="radio" value="2" name="Culture">2
+        <input type="radio" value="3" name="Culture">3
+        <input type="radio" value="4" name="Culture">4
+        <input type="radio" value="5" name="Culture">5
+    </label>
+    <div>
+        Social Aspect<br>
+    </div>
+    <label class="radio-inline">
+        <input type="radio" value="1" name="Social">1
+        <input type="radio" value="2" name="Social">2
+        <input type="radio" value="3" name="Social">3
+        <input type="radio" value="4" name="Social">4
+        <input type="radio" value="5" name="Social">5
+    </label>
+    <div>
+        Workload (hours per week)<br>
+    <div>
+        <div>
+            <input type="text" name="Workload">
+        </div>
+    </div>
+    <div>
+        Number of meetings per month<br>
+    </div>
+    <label class="radio-inline">
+        <input type="radio" value="0-4" name="Meetings">0-4
+        <input type="radio" value="4-8" name="Meetings">4-8
+        <input type="radio" value="8-12" name="Meetings">8-12
+        <input type="radio" value="12-20" name="Meetings">12-20
+        <input type="radio" value="20+" name="Meetings">20+
+    </label>
+    <br>
+    <div>
+        Would you recommend?
+    </div>
+    <select class="custom-select" name="Recommend">
+        Recommend<br>
+        <option disabled selected value=""></option>
+        <option value="Definitely not recommend">Definitely not recommend</option>
+        <option value="Unlikely to recommend">Unlikely to recommend</option>
+        <option value="Recommend with reservations">Recommend with reservations</option>
+        <option value="Likely to recommend">Likely to recommend</option>
+        <option value="Recommend with enthusiasm">Recommend with enthusiasm</option>
+    </select>
+    <br>
+    <br>
+    <p class="form-group">
+        <label for="usr">Additional Comments:</label><br>
+        <input type="text" class="form-control" id="usr" name="Comments">
+    </p>
+    <br>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function validateForm() {
+            var teamname = document.forms["myForm"]["teamname"].value;
+            if (teamname == "") {
+                alert("Favorite soccer team name must be filled out");
+                return false;
+            }
+        }
+    </script>
+
+{% endblock %}

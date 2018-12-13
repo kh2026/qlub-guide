@@ -1,0 +1,93 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    {{name}}
+{% endblock %}
+
+
+{% block main %}
+
+<!-- This is the page for any individual club -->
+<header>
+    <div class = "title">
+        <b>{{name}}</b>
+    </div>
+    {% if info['site']!='-' %}
+        <p>View {{name}}'s website <a href="{{info['site']}}">here.</a></p>
+    {% endif %}
+</header>
+<body align="left">
+    {% if info['description']!='-' %}
+        <hr/>
+        <p class="subheading">
+            <b>About:</b>
+        </p>
+        {{info['description']}}
+        </br>
+        </br>
+    {% endif %}
+    {% if info['email']!='tbd'  %}
+        <p class="subheading">
+            <b>Contact us:</b>
+        </p>
+        <b>Email:</b> {{ info['email'] }}
+    {% endif %}
+</body>
+<hr/>
+<reviews>
+    <p class="subheading">
+        <b>Members' Feedback:</b>
+    </p>
+</reviews>
+
+{% if session.user_id %}
+
+<p>
+        Key:<br>
+        1: Unsatisfactory;
+        2: Fair;
+        3: Good;
+        4: Very Good;
+        5: Excellent;
+    </p>
+
+<img src="/static/experience.png" width = 300 height = 200>
+<img src="/static/leadership.png" width = 300 height = 200>
+<img src="/static/culture.png" width = 300 height = 200>
+<img src="/static/social.png" width = 300 height = 200>
+<img src="/static/meetings.png" width = 300 height = 200>
+<img src="/static/recommend.png" width = 300 height = 200>
+
+<br>
+    Average workload (hours per week) = {{avg_workload}}<br>
+
+
+
+<table class = "table table-bordered">
+    <thead>
+        <tr>
+            <th>Reviews</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for review in reviews %}
+        {% if review['comments'] %}
+        <tr>
+            <td>{{review['comments']}}</td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% else %}
+Login to view reviews for a club.
+{% endif %}
+
+
+ <a href="{{review_link}}">Review</a> this club
+
+{% endblock %}
+

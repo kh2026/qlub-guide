@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+<!-- This is a homepage which is a list of every clubs -->
+{% block main %}
+
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Clubs</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+        <tr>
+            <td><a href= "{{ row['link'] }}">{{row['name']}}</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+
+

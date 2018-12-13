@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{searched}}
+{% endblock %}
+
+<!-- This page is reached if the search doesn't match exactly -->
+{% block main %}
+<header>
+    <div class="subheading">
+        <b>Sorry, {{ searched }} does not exist in our database</b>
+    </div>
+    <hr/>
+    {% if options[0]: %}
+        <div>
+            Did you mean:
+        </div>
+    {% endif %}
+</header>
+<body>
+    <table class = "table table-striped">
+        <tbody>
+        {% for row in options %}
+            <tr>
+                <td><a href= "/club/{{ row }}">{{row}}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

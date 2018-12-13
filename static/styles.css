@@ -1,0 +1,52 @@
+
+nav .navbar-logo .first
+{
+    padding-left: 50px;
+    font-size: 72px;
+    color: #ffffff;
+}
+
+nav .navbar-logo .others
+{
+    font-size: 48px;
+    color: #537fbe;
+}
+
+nav .navbar-brand
+{
+    padding-top: 35px;
+    padding-left: 40px;
+    width: 35%;
+}
+
+main .title
+{
+    font-size:60px;
+}
+
+main .subheading
+{
+    font-size: 30px;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
