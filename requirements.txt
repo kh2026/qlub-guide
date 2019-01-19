@@ -4,4 +4,4 @@ Flask-Session
 requests
 matplotlib
 numpy
-sqlite3
+sqlite
